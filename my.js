@@ -72,7 +72,7 @@ async function getinst() {
       }
       document.getElementById('oderli').innerHTML=hmtl0;
   }
-let db = new Dexie("party");db.version(1).stores({pt: "id,cn,mn1,mn2,*ods"});
+let db = new Dexie("party");db.version(2).stores({pt: "id,cn,mn1,mn2,*ods"});
 let erdb = new Dexie("erro");erdb.version(1).stores({err: "id"});
 let instdb = new Dexie("inst");instdb.version(1).stores({inst: "++id"});
 let bulkdb = new Dexie("bulk");bulkdb.version(1).stores({bk: "id"});
