@@ -571,12 +571,6 @@ function newocb() {
 }
 
 
-// document.querySelectorAll('#html33 tbody .w3-input').forEach(b => {
-//   b.addEventListener("change", (event) => {
-//     console.log(event.target.innerText)
-//   })
-// })
-
 ///each oninput table cell
 let totqt=[];
 function inclick(zx){
@@ -624,7 +618,7 @@ async function indb(d) {
   newc2();
 selg=d.name;
 document.getElementById('gstall').style.display='block';
-selgo(selg);
+// selgo(selg);
 
 document.getElementById('gstall').innerHTML="<div class='w3-blue-gray' style='display:flex;position: sticky;top: -50px;z-index: 6;'><div class='w3-bar-item w3-button w3-border-right' onclick='delod()'>Del</div><div id='cout6' class='w3-bar-item w3-button w3-border-right'>Total</div><div onclick='resetd()' class='w3-bar-item w3-button w3-border-right'>Reset</div><button class='w3-button w3-bar-item w3-border-right' onclick='omprint()'>Print</button>"+"<div id='st91' class='w3-dropdown-hover'> <button class='w3-button w3-border-right'>Status</button><div id='st92' class='w3-hide w3-bar-block w3-border'> <a href='#' onclick='unpin()' class='w3-bar-item w3-button'>None</a> <a href='#' onclick='chnot(0,this)' class='w3-bar-item w3-button'>Payment Pending</a> <a href='#' onclick='chnot(0,this)' class='w3-bar-item w3-button'>Under Production</a> <a href='#' onclick='chnot(0,this)' class='w3-bar-item w3-button'>Printing</a><a href='#' onclick='chnot(0,this)' class='w3-bar-item w3-button'>Part Quantity</a> <a href='#' onclick='chnot(0,this)' class='w3-bar-item w3-button'>Pending</a> <a href='#' onclick='chnot(0,this)' class='w3-bar-item w3-button'>In Transit</a><a href='#' onclick='chnot(0,this)' class='w3-bar-item w3-button'>COD</a> <input onchange='chnot(1,this)' id='inp5' name='od84' class='w3-border w3-bar-item' type='text' style='padding:5px;display:none' placeholder='Write other...'></div></div>"+"<button onclick='printadd()' class='w3-button'>DTDC</button>"+"</div>"+"<div id='tre6'><ul id='oderli' class='w3-ul'></ul></div>";
 // status toggle
@@ -638,39 +632,12 @@ document.getElementById('cout6').addEventListener("click", function() {
   else{alert("No data to count total ")}
  })
 
-await getods(selg).then((v) => {
-  selod5=JSON.parse(pinloc);//console.log(selg,pinloc)
-  setTimeout(function(){pint(0);selod5={};},100);
+await getods(selg).then(() => {
+  // selod5=JSON.parse(pinloc);//console.log(selg,pinloc)
+  setTimeout(()=>{pint();},100);
 })
 
 }
-
-
-
-// function chnot(b,v) {
-//   let sel=Object.keys(selod5);
-//   if(sel.length){
-//     let lastsel=sel[sel.length-1];
-//   selpin(selg);selgo(selg);//pint(1);
-//   op5= JSON.parse(pinloc);
-//   if (b===1) {
-//     op5[lastsel]=v.value;
-//     document.querySelector('#vtag [name='+lastsel+']').innerHTML=v.value;
-//   }else{
-//     op5[lastsel]=v.innerText;
-//     document.querySelector('#vtag [name='+lastsel+']').innerText=v.innerText;
-//   }
-//   localStorage.setItem(pinz,JSON.stringify(op5));
-//  v.value='';
-//    let mer5 = {...op5, ...selod5};
-//   localStorage.setItem(pinz,JSON.stringify(mer5));
-//   let vkz5={ p: "3","g":selg, od:{...mer5}};
-//   for (let u in selod5) {document.getElementById(u).checked=false;}selod5={};
-//   // indb({name:selg});
-//   sendd(urli,vkz5,'pin');
-// }else{alert('Select order first.')
-//   }
-// }
 
 let clickh=0;
 async function opodli(b) {
@@ -934,64 +901,6 @@ iframe.contentWindow.document.close();
  setTimeout(function(){ iframe.remove()}, 5000);
 }
 
-  // if(v===1){
-  // let mer5 = {...j, ...selod5};
-  // selpin(selg);
-  // localStorage.setItem(pinz,JSON.stringify(mer5));
-  // selod5={};
-  // let vkz5={ p: "3","g":selg, od:{...mer5}};
-  // sendd(urli,vkz5,'pin');
-  // }
-  
-
-// // pin 
-// function pint(v,p) {
-//   selgo(selg);const aul=document.getElementById('oderli');
-//  // let od=selg.slice(-1);//console.log(selod5);
-//   for (const t in selod5) {
-//   let px=document.getElementById(t);let pxn=px.parentNode;
-  
-//   // db.pt.where('ods').equals(od+t.slice(2)).each((v)=>{
-//     let pj=pxn.tabIndex;//console.log(t,pj);
-//     if (pj>0) {
-//   (async()=>{
-//   await db.pt.get(pj).then((v)=>{
-//     // console.log(t,pj);
-//     // if ((v.add!=='')) {pxn.style.color='blue';}
-//     // console.log((v.add===''),v.cn);
-//     // !!v.add||(pxn.style.color='blue');
-//     !!(v.add)||(pxn.style.color='blue'); // if add=='' color blue
-//     if (v.gst) {
-//         let zw=pxn.querySelector('span[onclick] span');
-//         zw.innerText='GST';
-//         zw.style.padding='';
-//     }
-//   });})();}
-
-//  // console.log(t,selod5[t],selod5);
-//   if(t!=selod5[t]){aul.querySelector('#vtag [name='+t+']').innerText=selod5[t];}
-//   let lipnode=aul.querySelectorAll('#oderli li');
-//   // let xm=Array.from(px.parentNode.parentNode.children).indexOf(px.parentNode);
-//    let xm=Array.from(lipnode).indexOf(pxn);
-//   //moveItem(xm,0);
-//   const items = [...lipnode];
-//   if (0 > items.length - 1 || 0 < 0) return;
-//   const item = items[xm];
-//   if (!item) return;
-//   aul.removeChild(item);
-//   aul.insertBefore(item, aul.children[0]);
-//   // pxn.style.background='#ffeb3b';
-//   px.checked=false;
-//  // console.log(xm)
-//   }
-//   let mer5 = {...JSON.parse(pinloc), ...selod5};
-//   selpin(selg);
-//   localStorage.setItem(pinz,JSON.stringify(mer5));
-//   selod5={};
-//   let vkz5={ p: "3","g":selg, od:{...mer5}};
-//   if(v===1){sendd(urli,vkz5,'pin')}
-// }
-
 // var moveItem = (from, to) => {
 //   const aul=document.getElementById('oderli');
 //   const items = [...aul.querySelectorAll('li')];
@@ -1047,24 +956,24 @@ async function pint(v) {
   selgo(selg);let aul=document.getElementById('oderli');
   let j=JSON.parse(pinloc);
   for (const t in j) {
-    let px=document.getElementById(t);let pxn=px.parentNode;
-      let pj=pxn.tabIndex;
+    let px=document.getElementById(t);
+    let pxn=px.parentNode;
+    pxn.querySelector('#vtag [name='+t+']').innerText=j[t];
       // console.log(t,pj,t);
-      // if(t!=selod5[t]){
-         aul.querySelector('#vtag [name='+t+']').innerText=j[t];
-//       if (pj>0) {
-//     await db.pt.get(pj).then((v)=>{
-//       if (v) {
-//         !!(v.add)||(pxn.style.color='blue'); // if add=='' txt color blue
-//         if (v.gst) {
-//             let zw=pxn.querySelector('span[onclick] span');
-//             zw.innerText='GST';
-//             zw.style.padding='';
-//         }
-//       }else{
-//         (pxn.style.color='red'); // if no party found txt color red
-//       }
-//     });}
+      let pj=pxn.tabIndex;
+      if (pj>0) {
+    await db.pt.get(pj).then((v)=>{
+      if (v) {
+        !!(v.add)||(pxn.style.color='blue'); // if add=='' txt color blue
+        if (v.gst) {
+            let zw=pxn.querySelector('span[onclick] span');
+            zw.innerText='GST';
+            zw.style.padding='';
+        }
+      }else{
+        (pxn.style.color='red'); // if no party found txt color red
+      }
+    });}
   }
   for (let u in selod5) {document.getElementById(u).checked=false;}selod5={};
 }
