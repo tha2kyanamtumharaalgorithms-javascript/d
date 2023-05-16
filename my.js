@@ -640,7 +640,7 @@ document.getElementById('cout6').addEventListener("click", function() {
 
 await getods(selg).then((v) => {
   selod5=JSON.parse(pinloc);//console.log(selg,pinloc)
-  setTimeout(function(){0);selod5={};},100);
+  setTimeout(function(){pint();selod5={};},100);
 })
 
 }
