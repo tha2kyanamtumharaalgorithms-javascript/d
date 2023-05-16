@@ -640,7 +640,7 @@ document.getElementById('cout6').addEventListener("click", function() {
 
 await getods(selg).then((v) => {
   selod5=JSON.parse(pinloc);//console.log(selg,pinloc)
-  setTimeout(function(){pint(0);selod5={};},100);
+  setTimeout(function(){0);selod5={};},100);
 })
 
 }
@@ -1052,19 +1052,19 @@ async function pint(v) {
       // console.log(t,pj,t);
       // if(t!=selod5[t]){
          aul.querySelector('#vtag [name='+t+']').innerText=j[t];
-      if (pj>0) {
-    await db.pt.get(pj).then((v)=>{
-      if (v) {
-        !!(v.add)||(pxn.style.color='blue'); // if add=='' txt color blue
-        if (v.gst) {
-            let zw=pxn.querySelector('span[onclick] span');
-            zw.innerText='GST';
-            zw.style.padding='';
-        }
-      }else{
-        (pxn.style.color='red'); // if no party found txt color red
-      }
-    });}
+//       if (pj>0) {
+//     await db.pt.get(pj).then((v)=>{
+//       if (v) {
+//         !!(v.add)||(pxn.style.color='blue'); // if add=='' txt color blue
+//         if (v.gst) {
+//             let zw=pxn.querySelector('span[onclick] span');
+//             zw.innerText='GST';
+//             zw.style.padding='';
+//         }
+//       }else{
+//         (pxn.style.color='red'); // if no party found txt color red
+//       }
+//     });}
   }
   for (let u in selod5) {document.getElementById(u).checked=false;}selod5={};
 }
